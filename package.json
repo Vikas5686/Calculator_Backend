@@ -1,14 +1,11 @@
 {
   "name": "y",
   "version": "1.0.0",
-  "description": "y",
-  "main": "y",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "y"
-  },
-  "repository": {
-    "type": "git",
-    "url": "y"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
