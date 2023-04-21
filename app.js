@@ -2,11 +2,11 @@ const express = require('express');
 require("dotenv").config();
 const app = express()
 const cors = require("cors")
-const { mongoose } = require('mongoose');
-
 require("./db/conn")
 const users = require("./models/userSchema")
+const { mongoose } = require('mongoose');
 const router =require("./routes/router")
+
 
 const port = 3000;
 

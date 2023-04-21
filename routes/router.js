@@ -68,10 +68,7 @@ router.patch("/TotalNoOfApps/:id", async (req, res) => {
     try {
         console.log(req.body)
         const { id } = req.params
-        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { location: req.body.location } })
-        if (userindividual==null) {
-            console.log(userindividual)
-        }
+        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { totalsApps: req.body.totalsApps } })
         res.status(201).json(userindividual)
     } catch (error) {
         res.status(404).json(error)
