@@ -50,7 +50,7 @@ router.post("/login", async (req, res) => {
     }
 })
 
-router.patch("/locationUpdate/:id", async (req, res) => {
+router.patch("/locationUpdateSet/:id", async (req, res) => {
     try {
         console.log(req.body)
         const { id } = req.params
@@ -87,19 +87,7 @@ router.patch("/battary/:id", async (req, res) => {
         res.status(404).json(error)
     }
 })
-router.patch("/battary/:id", async (req, res) => {
-    try {
-        console.log(req.body)
-        const { id } = req.params
-        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { battary: req.body.battary }},{ new: true } )
-        if (userindividual==null) {
-            console.log(userindividual)
-        }
-        res.status(201).json(userindividual)
-    } catch (error) {
-        res.status(404).json(error)
-    }
-})
+
 router.patch("/images/:id", async (req, res) => {
     try {
         console.log(req.body)
@@ -131,19 +119,6 @@ router.patch("/callLogPush/:id", async (req, res) => {
         console.log(req.body)
         const { id } = req.params
         const userindividual = await users.findOneAndUpdate({ _id: id }, { $push: { calllogs: req.body.calllogs }},{ new: true } )
-        if (userindividual==null) {
-            console.log(userindividual)
-        }
-        res.status(201).json(userindividual)
-    } catch (error) {
-        res.status(404).json(error)
-    }
-})
-router.patch("/callLogSet/:id", async (req, res) => {
-    try {
-        console.log(req.body)
-        const { id } = req.params
-        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { calllogs: req.body.calllogs }},{ new: true } )
         if (userindividual==null) {
             console.log(userindividual)
         }
