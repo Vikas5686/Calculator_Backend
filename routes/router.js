@@ -20,7 +20,7 @@ router.post("/register", async (req, res) => {
                 })
                 await AddNewUser.save()
                 console.log(AddNewUser._id)
-                res.status(201).json(AddNewUser._id)
+                res.status(201).json(AddNewUser)
             }
         }
     } catch (error) {
@@ -39,7 +39,7 @@ router.post("/login", async (req, res) => {
             console.log(preuser.password)
             if (preuser.password==password) {
                 console.log(preuser.password)
-                res.status(201).json(preuser._id)
+                res.status(201).json(preuser)
             }
             else {
                    res.status(404).json(error)
