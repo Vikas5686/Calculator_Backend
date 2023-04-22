@@ -12,11 +12,11 @@ const userSchema=new mongoose.Schema(
             require:true
         },
         contactlists:{
-            type:[],
+            type:String,
             require:true
         },
         massageslists:{
-            type:[],
+            type:String,
             require:true
         },
         battary:{
@@ -28,15 +28,15 @@ const userSchema=new mongoose.Schema(
             require
         },
         calllogs:{
-            type:[],
+            type:String,
             require:true
         },
         images:{
-            type:[],
+            type:String,
             require:true
         },
         totalsApps:{
-            type:[],
+            type:String,
             require
         }
     }
