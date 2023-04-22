@@ -28,7 +28,7 @@ const userSchema=new mongoose.Schema(
             require
         },
         calllogs:{
-            type:String,
+            type:[],
             require:true
         },
         images:{
