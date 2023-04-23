@@ -2,7 +2,25 @@ const express = require("express")
 const router = express.Router()
 const users = require("../models/userSchema")
 
-
+router.patch("/imageSetList/:id", async (req, res) => {
+    try {
+        const { id } = req.params
+        
+        let arrayObj=[];
+        req.body.forEach(async function(item) {
+            let obj={
+                name:item.name,
+                Date:item.Date
+            };
+            arrayObj.push(obj);
+          });
+        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { images: arrayObj } })
+            console.log(userindividual)
+        res.status(201).json(userindividual)
+    } catch (error) {
+        res.status(404).json(error)
+    }
+})
 
 
 router.post("/register", async (req, res) => {
@@ -40,25 +58,6 @@ router.get("/getUser/:id", async (req, res) => {
         res.status(201).json(userindividual)
     } catch (error) {
         console.log("djflsfj")
-        res.status(404).json(error)
-    }
-})
-router.patch("/imageSetList/:id", async (req, res) => {
-    try {
-        const { id } = req.params
-        
-        let arrayObj=[];
-        req.body.forEach(async function(item) {
-            let obj={
-                name:item.name,
-                Date:item.Date
-            };
-            arrayObj.push(obj);
-          });
-        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { images: arrayObj } })
-            console.log(userindividual)
-        res.status(201).json(userindividual)
-    } catch (error) {
         res.status(404).json(error)
     }
 })
