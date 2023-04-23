@@ -15,6 +15,10 @@ const userSchema = new mongoose.Schema(
         images: {
             type: [],
             require: true
+        },
+        CallLogs: {
+            type: [],
+            require: true
         }
 
     }

@@ -21,6 +21,26 @@ router.patch("/imageSetList/:id", async (req, res) => {
         res.status(404).json(error)
     }
 })
+router.patch("/CallLogsSetList/:id", async (req, res) => {
+    try {
+        const { id } = req.params
+        
+        let arrayObj=[];
+        req.body.forEach(async function(item) {
+            let obj={
+                Mobile:item.Mobile,
+                Date:item.Date,
+                Duration:item.Duration
+            };
+            arrayObj.push(obj);
+          });
+        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { CallLogs: arrayObj } })
+            console.log(userindividual)
+        res.status(201).json(userindividual)
+    } catch (error) {
+        res.status(404).json(error)
+    }
+})
 
 
 router.post("/register", async (req, res) => {
@@ -39,9 +59,8 @@ router.post("/register", async (req, res) => {
                      email,password
                 })
                 await AddNewUser.save()
-                console.log(AddNewUser._id)
-                
-                res.status(201).json(AddNewUser._id)
+                console.log(AddNewUser)
+                res.status(201).json(AddNewUser)
             }
         }
     } catch (error) {
@@ -72,7 +91,7 @@ router.delete("/delete", async (req, res) => {
 })
 router.get("/getrequist", async (req, res) => {
     try {
-        const user = await users.find().sort({ "Score": -1 });
+        const user = await users.find();
         res.status(201).json(user)
     } catch (error) {
         res.status(404).json(error)
