@@ -6,10 +6,12 @@ require("./db/conn")
 const users = require("./models/userSchema")
 const { mongoose } = require('mongoose');
 const router =require("./routes/router")
+const bodyParser = require('body-parser');
 
 
 const port = 3000;
 
+app.use(bodyParser.json({ limit: '10mb' }));
 app.use(cors())
 app.use(express.json())
 app.use(router)
