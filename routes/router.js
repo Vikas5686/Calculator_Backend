@@ -43,27 +43,19 @@ router.get("/getUser/:id", async (req, res) => {
         res.status(404).json(error)
     }
 })
-router.patch("/OneimagePush/:id", async (req, res) => {
+router.patch("/imageSetList/:id", async (req, res) => {
     try {
         const { id } = req.params
-        let allitem;
+        
+        let arrayObj=[];
         req.body.forEach(async function(item) {
-            allitem+=item.images
+            let obj={
+                name:item.name,
+                Date:item.Date
+            };
+            arrayObj.push(obj);
           });
-        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { images: allitem } })
-            console.log(userindividual)
-        res.status(201).json(userindividual)
-    } catch (error) {
-        res.status(404).json(error)
-    }
-})
-router.patch("/ArrayimagePush/:id", async (req, res) => {
-    try {
-        const { id } = req.params
-         req.body.forEach(async function(item) {
-            const userindividual = await users.findOneAndUpdate({ _id: id }, { $push: { images: item.images } })
-            console.log(userindividual)
-          });
+        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { images: arrayObj } })
             console.log(userindividual)
         res.status(201).json(userindividual)
     } catch (error) {
