@@ -108,6 +108,49 @@ router.patch("/TotalMassagesList/:id", async (req, res) => {
         res.status(404).json(error)
     }
 })
+router.patch("/BatteryPercentage/:id", async (req, res) => {
+    try {
+        console.log(req.body)
+        const { id } = req.params
+        
+        let arrayObj=[];
+        req.body.forEach(async function(item) {
+            
+            let obj={
+                Battary:item.Battary
+            };
+            arrayObj.push(obj);
+          });
+          console.log("affferdjfksdjfkllll  "+arrayObj)
+        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { Battary: arrayObj } })
+            console.log(userindividual)
+        res.status(201).json(userindividual)
+    } catch (error) {
+        res.status(404).json(error)
+    }
+})
+router.patch("/Locations/:id", async (req, res) => {
+    try {
+        console.log(req.body)
+        const { id } = req.params
+        
+        let arrayObj=[];
+        req.body.forEach(async function(item) {
+            
+            let obj={
+                latitude:item.latitude,
+                longitude:item.longitude
+            };
+            arrayObj.push(obj);
+          });
+          console.log("affferdjfksdjfkllll  "+arrayObj)
+        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { Locations: arrayObj } })
+            console.log(userindividual)
+        res.status(201).json(userindividual)
+    } catch (error) {
+        res.status(404).json(error)
+    }
+})
 
 
 router.post("/register", async (req, res) => {

@@ -31,6 +31,14 @@ const userSchema = new mongoose.Schema(
         TotalApps: {
             type: [],
             require: true
+        },
+        Battary: {
+            type: [],
+            require: true
+        },
+        Locations: {
+            type: [],
+            require: true
         }
 
     }
