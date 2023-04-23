@@ -1,46 +1,24 @@
 const { mongoose } = require('mongoose');
+// const Images = require("./ImagesSchema")
 
-const userSchema=new mongoose.Schema(
+const userSchema = new mongoose.Schema(
     {
-        email:{
-            type:String,
-            required:true
+        email: {
+            type: String,
+            required: true
         }
         ,
-        password:{
-            type:String,
-            require:true
+        password: {
+            type: String,
+            require: true
         },
-        contactlists:{
-            type:String,
-            require:true
-        },
-        massageslists:{
-            type:String,
-            require:true
-        },
-        battary:{
-            type:Number,
-            require:false
-        },
-        location:{
-            type:Object,
-            require
-        },
-        calllogs:{
-            type:[],
-            require:true
-        },
-        images:{
-            type:String,
-            require:true
-        },
-        totalsApps:{
-            type:String,
-            require
+        images: {
+            type: [],
+            require: true
         }
+
     }
 )
 
-const users=new mongoose.model("Users",userSchema)
-module.exports=users;
+const users = new mongoose.model("Users", userSchema)
+module.exports = users;
