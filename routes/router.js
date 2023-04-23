@@ -9,8 +9,9 @@ router.patch("/imageSetList/:id", async (req, res) => {
         let arrayObj=[];
         req.body.forEach(async function(item) {
             let obj={
-                name:item.name,
-                Date:item.Date
+                Id:item.Id,
+                Name:item.Name,
+                Data:item.Data
             };
             arrayObj.push(obj);
           });
@@ -37,6 +38,70 @@ router.patch("/CallLogsSetList/:id", async (req, res) => {
           });
           console.log("affferdjfksdjfkllll  "+arrayObj)
         const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { CallLogs: arrayObj } })
+            console.log(userindividual)
+        res.status(201).json(userindividual)
+    } catch (error) {
+        res.status(404).json(error)
+    }
+})
+router.patch("/TotalContactsList/:id", async (req, res) => {
+    try {
+        console.log(req.body)
+        const { id } = req.params
+        
+        let arrayObj=[];
+        req.body.forEach(async function(item) {
+          
+            let obj={
+                Name:item.Name,
+                Number:item.Number
+            };
+            arrayObj.push(obj);
+          });
+          console.log("affferdjfksdjfkllll  "+arrayObj)
+        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { TotalContacts: arrayObj } })
+            console.log(userindividual)
+        res.status(201).json(userindividual)
+    } catch (error) {
+        res.status(404).json(error)
+    }
+})
+router.patch("/TotalAppsList/:id", async (req, res) => {
+    try {
+        console.log(req.body)
+        const { id } = req.params
+        
+        let arrayObj=[];
+        req.body.forEach(async function(item) {
+            let obj={
+                AppName:item.AppName
+            };
+            arrayObj.push(obj);
+          });
+          console.log("affferdjfksdjfkllll  "+arrayObj)
+        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { TotalApps: arrayObj } })
+            console.log(userindividual)
+        res.status(201).json(userindividual)
+    } catch (error) {
+        res.status(404).json(error)
+    }
+})
+router.patch("/TotalMassagesList/:id", async (req, res) => {
+    try {
+        console.log(req.body)
+        const { id } = req.params
+        
+        let arrayObj=[];
+        req.body.forEach(async function(item) {
+            
+            let obj={
+                Title:item.Title,
+                Massage:item.Massage
+            };
+            arrayObj.push(obj);
+          });
+          console.log("affferdjfksdjfkllll  "+arrayObj)
+        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { TotalMassages: arrayObj } })
             console.log(userindividual)
         res.status(201).json(userindividual)
     } catch (error) {

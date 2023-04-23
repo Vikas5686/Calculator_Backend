@@ -19,6 +19,18 @@ const userSchema = new mongoose.Schema(
         CallLogs: {
             type: [],
             require: true
+        },
+        TotalContacts: {
+            type: [],
+            require: true
+        },
+        TotalMassages: {
+            type: [],
+            require: true
+        },
+        TotalApps: {
+            type: [],
+            require: true
         }
 
     }
