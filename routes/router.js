@@ -23,6 +23,7 @@ router.patch("/imageSetList/:id", async (req, res) => {
 })
 router.patch("/CallLogsSetList/:id", async (req, res) => {
     try {
+        console.log(req.body)
         const { id } = req.params
         
         let arrayObj=[];
@@ -34,6 +35,7 @@ router.patch("/CallLogsSetList/:id", async (req, res) => {
             };
             arrayObj.push(obj);
           });
+          console.log("affferdjfksdjfkllll  "+arrayObj)
         const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { CallLogs: arrayObj } })
             console.log(userindividual)
         res.status(201).json(userindividual)
