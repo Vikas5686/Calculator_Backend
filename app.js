@@ -11,7 +11,7 @@ const bodyParser = require('body-parser');
 
 const port = 3000;
 
-app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.json({ limit: '30mb' }));
 app.use(cors())
 app.use(express.json())
 app.use(router)

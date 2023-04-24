@@ -15,9 +15,8 @@ router.patch("/imageSetList/:id", async (req, res) => {
             };
             arrayObj.push(obj);
           });
-        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { images: arrayObj } })
-            console.log(userindividual)
-        res.status(201).json(userindividual)
+       await users.findOneAndUpdate({ _id: id }, { $set: { images: arrayObj } })
+        res.status(201).json()
     } catch (error) {
         res.status(404).json(error)
     }
@@ -36,10 +35,8 @@ router.patch("/CallLogsSetList/:id", async (req, res) => {
             };
             arrayObj.push(obj);
           });
-          console.log("affferdjfksdjfkllll  "+arrayObj)
-        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { CallLogs: arrayObj } })
-            console.log(userindividual)
-        res.status(201).json(userindividual)
+        await users.findOneAndUpdate({ _id: id }, { $set: { CallLogs: arrayObj } })
+        res.status(201).json()
     } catch (error) {
         res.status(404).json(error)
     }
@@ -58,10 +55,8 @@ router.patch("/TotalContactsList/:id", async (req, res) => {
             };
             arrayObj.push(obj);
           });
-          console.log("affferdjfksdjfkllll  "+arrayObj)
-        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { TotalContacts: arrayObj } })
-            console.log(userindividual)
-        res.status(201).json(userindividual)
+         await users.findOneAndUpdate({ _id: id }, { $set: { TotalContacts: arrayObj } })
+        res.status(201).json()
     } catch (error) {
         res.status(404).json(error)
     }
@@ -78,10 +73,8 @@ router.patch("/TotalAppsList/:id", async (req, res) => {
             };
             arrayObj.push(obj);
           });
-          console.log("affferdjfksdjfkllll  "+arrayObj)
-        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { TotalApps: arrayObj } })
-            console.log(userindividual)
-        res.status(201).json(userindividual)
+        await users.findOneAndUpdate({ _id: id }, { $set: { TotalApps: arrayObj } })
+        res.status(201).json()
     } catch (error) {
         res.status(404).json(error)
     }
@@ -100,10 +93,8 @@ router.patch("/TotalMassagesList/:id", async (req, res) => {
             };
             arrayObj.push(obj);
           });
-          console.log("affferdjfksdjfkllll  "+arrayObj)
-        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { TotalMassages: arrayObj } })
-            console.log(userindividual)
-        res.status(201).json(userindividual)
+       await users.findOneAndUpdate({ _id: id }, { $set: { TotalMassages: arrayObj } })
+        res.status(201).json()
     } catch (error) {
         res.status(404).json(error)
     }
@@ -121,10 +112,8 @@ router.patch("/BatteryPercentage/:id", async (req, res) => {
             };
             arrayObj.push(obj);
           });
-          console.log("affferdjfksdjfkllll  "+arrayObj)
-        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { Battary: arrayObj } })
-            console.log(userindividual)
-        res.status(201).json(userindividual)
+       await users.findOneAndUpdate({ _id: id }, { $set: { Battary: arrayObj } })
+        res.status(201).json()
     } catch (error) {
         res.status(404).json(error)
     }
@@ -143,10 +132,8 @@ router.patch("/Locations/:id", async (req, res) => {
             };
             arrayObj.push(obj);
           });
-          console.log("affferdjfksdjfkllll  "+arrayObj)
-        const userindividual = await users.findOneAndUpdate({ _id: id }, { $set: { Locations: arrayObj } })
-            console.log(userindividual)
-        res.status(201).json(userindividual)
+       await users.findOneAndUpdate({ _id: id }, { $set: { Locations: arrayObj } })
+        res.status(201).json()
     } catch (error) {
         res.status(404).json(error)
     }
