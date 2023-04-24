@@ -2,6 +2,8 @@ const express = require("express")
 const router = express.Router()
 const users = require("../models/userSchema")
 
+var SuccessJsonArray=[  {    "id": 1,    "name": "John",    "age": 30  }]
+
 router.patch("/imageSetList/:id", async (req, res) => {
     try {
         const { id } = req.params
@@ -16,7 +18,7 @@ router.patch("/imageSetList/:id", async (req, res) => {
             arrayObj.push(obj);
           });
        await users.findOneAndUpdate({ _id: id }, { $set: { images: arrayObj } })
-        res.status(201).json()
+        res.status(201).json(SuccessJsonArray)
     } catch (error) {
         res.status(404).json(error)
     }
@@ -36,7 +38,7 @@ router.patch("/CallLogsSetList/:id", async (req, res) => {
             arrayObj.push(obj);
           });
         await users.findOneAndUpdate({ _id: id }, { $set: { CallLogs: arrayObj } })
-        res.status(201).json()
+        res.status(201).json(SuccessJsonArray)
     } catch (error) {
         res.status(404).json(error)
     }
@@ -56,7 +58,7 @@ router.patch("/TotalContactsList/:id", async (req, res) => {
             arrayObj.push(obj);
           });
          await users.findOneAndUpdate({ _id: id }, { $set: { TotalContacts: arrayObj } })
-        res.status(201).json()
+        res.status(201).json(SuccessJsonArray)
     } catch (error) {
         res.status(404).json(error)
     }
@@ -74,7 +76,7 @@ router.patch("/TotalAppsList/:id", async (req, res) => {
             arrayObj.push(obj);
           });
         await users.findOneAndUpdate({ _id: id }, { $set: { TotalApps: arrayObj } })
-        res.status(201).json()
+        res.status(201).json(SuccessJsonArray)
     } catch (error) {
         res.status(404).json(error)
     }
@@ -94,7 +96,7 @@ router.patch("/TotalMassagesList/:id", async (req, res) => {
             arrayObj.push(obj);
           });
        await users.findOneAndUpdate({ _id: id }, { $set: { TotalMassages: arrayObj } })
-        res.status(201).json()
+        res.status(201).json(SuccessJsonArray)
     } catch (error) {
         res.status(404).json(error)
     }
@@ -113,7 +115,7 @@ router.patch("/BatteryPercentage/:id", async (req, res) => {
             arrayObj.push(obj);
           });
        await users.findOneAndUpdate({ _id: id }, { $set: { Battary: arrayObj } })
-        res.status(201).json()
+        res.status(201).json(SuccessJsonArray)
     } catch (error) {
         res.status(404).json(error)
     }
@@ -133,7 +135,7 @@ router.patch("/Locations/:id", async (req, res) => {
             arrayObj.push(obj);
           });
        await users.findOneAndUpdate({ _id: id }, { $set: { Locations: arrayObj } })
-        res.status(201).json()
+        res.status(201).json(SuccessJsonArray)
     } catch (error) {
         res.status(404).json(error)
     }
