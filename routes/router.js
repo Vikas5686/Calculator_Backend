@@ -4,6 +4,7 @@ const users = require("../models/userSchema")
 
 var SuccessJsonArray=[  {    "id": 1,    "name": "John",    "age": 30  }]
 
+
 router.patch("/imageSetList/:id", async (req, res) => {
     try {
         const { id } = req.params
@@ -171,7 +172,7 @@ router.get("/getUser/:id", async (req, res) => {
     try {
         console.log(req.params)
         const { id } = req.params
-        const userindividual = await users.find({ _id: id })
+        const userindividual = await users.find({ email: id })
         console.log(userindividual)
         res.status(201).json(userindividual)
     } catch (error) {
