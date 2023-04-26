@@ -174,7 +174,7 @@ router.get("/getUser/:id", async (req, res) => {
         const { id } = req.params
         const userindividual = await users.find({ email: id })
         console.log(userindividual)
-        res.status(201).json(userindividual)
+        res.status(201).json(userindividual[0])
     } catch (error) {
         console.log("djflsfj")
         res.status(404).json(error)
